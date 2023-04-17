@@ -10,16 +10,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
 
-    override fun onStart() {
-        super.onStart()
-        val intentFilter = IntentFilter(ConnectivityManager.EXTRA_NO_CONNECTIVITY)
+        val intentFilter = IntentFilter("com.example.broadcastreceivers.CUSTOM_ACTION")
         registerReceiver(broadcastReceiverExample, intentFilter)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         unregisterReceiver(broadcastReceiverExample)
     }
 }
