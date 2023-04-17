@@ -12,8 +12,9 @@ class BroadcastReceiverExample : BroadcastReceiver(){
             if(Intent.ACTION_BOOT_COMPLETED == intent.action) {
                 Toast.makeText(context, "Boot Completed", Toast.LENGTH_SHORT).show()
             }
-            if (ConnectivityManager.CONNECTIVITY_ACTION == intent.action) {
-                Toast.makeText(context, "Connectivity Changed", Toast.LENGTH_SHORT).show()
+
+            if(ConnectivityManager.EXTRA_NO_CONNECTIVITY == intent.action){
+                Toast.makeText(context, "Internet Disconnected", Toast.LENGTH_SHORT).show()
             }
         }
     }
